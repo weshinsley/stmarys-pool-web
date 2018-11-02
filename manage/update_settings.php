@@ -40,7 +40,9 @@
   
   foreach($tts->tt as $tt) {
     $opname = htmlspecialchars(base64_decode($tt['name']));
-    $result.="<option value='".$tt['name']."'>".$opname."</option>";
+    $selected="";
+    if ($tt['name']==$f_tt) $selected = "selected='selected' ";
+    $result.="<option ".$selected." value='".$tt['name']."'>".$opname."</option>";
   }
   $result.="</select>\");";
   
