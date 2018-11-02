@@ -99,4 +99,12 @@
     }
     echo "</tr><tr style='height:10px'><td></td></tr></table>\n";
   }
+  function draw_tt_key() {
+    $cols = array("#909090","#90d090","#9090d0");
+    echo "<table><tr>\n";
+    echo "  <td style=\"border:1px solid black;width:16px;height:16px;background:#90d090\"></td><td style=\"font-family:Calibri,Arial\">Open&nbsp;&nbsp;&nbsp;</td>\n";
+    echo "  <td style=\"border:1px solid black;width:16px;height:16px;background:#9090d0\"></td><td style=\"font-family:Calibri,Arial\">School Use&nbsp;&nbsp;&nbsp;</td>\n";
+    echo "  <td style=\"border:1px solid black;width:16px;height:16px;background:#909090\"></td><td style=\"font-family:Calibri,Arial\">Closed&nbsp;&nbsp;&nbsp;<br/></td>\n";
+    echo "</tr></table>&nbsp;<br/>\n";
+  }
 ?>

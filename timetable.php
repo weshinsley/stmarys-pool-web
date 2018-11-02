@@ -46,8 +46,8 @@
  <?php
    include "timetable_draw.php";
    draw_tt($tt,1);
+   draw_tt_key();
  ?>
- 
     </center></td></tr></table>
   </center></body>
 </html>
