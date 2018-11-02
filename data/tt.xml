@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tts>
+  <tt name="Tm92ZW1iZXIgMjAxOA==">
+    <slot type="open" day="Monday" start="0700" end="1100" />
+    <slot type="open" day="Monday" start="1200" end="1430" />
+    <slot type="open" day="Monday" start="1530" end="1600" />
+    <slot type="open" day="Tuesday" start="1000" end="1400" />
+    <slot type="open" day="Tuesday" start="1500" end="1900" />
+    <slot type="open" day="Wednesday" start="0700" end="1100" />
+    <slot type="open" day="Wednesday" start="1200" end="1600" />
+    <slot type="open" day="Thursday" start="1200" end="1400" />
+    <slot type="open" day="Thursday" start="1500" end="1900" />
+    <slot type="open" day="Friday" start="0700" end="1000" />
+    <slot type="open" day="Friday" start="1200" end="1400" />
+    <slot type="open" day="Friday" start="1500" end="1600" />
+    <slot type="school" day="Monday" start="1430" end="1530" />
+    <slot type="school" day="Thursday" start="1000" end="1200" />
+    <slot type="school" day="Friday" start="1000" end="1200" />
+  </tt>
+</tts>

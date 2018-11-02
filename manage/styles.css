@@ -1,0 +1,50 @@
+h1 {
+  font-family: Calibri,Arial;
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.tinfo {
+  font-family: Calibri,Arial;
+  font-size: 15pt;
+  font-weight: bold;
+  text-align: right;
+  background-color:#e8ffe8;
+  width:270px;
+  opacity:0.8;
+}
+
+select {
+  font-family: Calibri,Arial;
+  font-size: 15pt;
+  font-weight: bold;
+  width:250px;
+  opacity:0.8;
+}
+
+td.tdata {
+  font-family: Calibri,Arial;
+  font-size: 15pt;
+  font-weight: normal;
+  text-align: left;
+  background-color:#e8e8ff;
+  width:270px;
+  opacity:0.8;
+}
+
+td.bigdata {
+  font-family: Calibri,Arial;
+  font-size: 28pt;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: text-bottom;
+  background-color:#e8e8ff;
+  width:270px;
+  opacity:0.8;
+}
+
+tr.ttedit {
+  font-family: Calibri,Arial;
+  font-size: 12pt;  
+}
