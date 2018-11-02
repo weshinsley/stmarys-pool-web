@@ -48,3 +48,17 @@ tr.ttedit {
   font-family: Calibri,Arial;
   font-size: 12pt;  
 }
+
+a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

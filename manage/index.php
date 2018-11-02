@@ -68,6 +68,10 @@
           <td><img src="../images/sm.png" alt="" width="334" height="63"/></td>
           <td><img src="../images/si.png" alt="" width="165" height="63"/></td>
       </tr>
+        <tr><td colspan="2" style="padding:2px; font-family:Calibri,Arial;font-size:14px;color:#ffffff; background:#00558E">
+        &nbsp;&nbsp;&nbsp;<u>Basic Settings</u>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="timetable_edit.php">Edit Timetables</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</td><td style="padding:2px; font-family:Calibri,Arial;font-size:14px;color:#ffffff;text-align:right; background:#00558E">
+        <a href="../index.php">Exit Management</a>&nbsp;&nbsp;&nbsp;</span></td></tr>
+ 
       <tr><td style="background:url('../images/bg.png')" colspan="3"><center>&nbsp;<br/>
         <form name="fsettings">       
         <table class="info" cellpadding="10" cellspacing="4">

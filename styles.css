@@ -24,3 +24,17 @@ div.special_msg {
   font-weight: bold;
   text-align: center;
 }
+
+a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
