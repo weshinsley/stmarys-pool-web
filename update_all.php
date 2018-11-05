@@ -142,6 +142,7 @@
 
   $lanes = intval($fstatus[$FS_LANES]);
   $swimmers = intval($fstatus[$FS_SWIMMERS]);
+  $aptemps = $fstatus[$FS_PTEMP]."&#8451; / ".$fstatus[$FS_ATEMP]."&#8451;";
 
   $result = "$(\".update_time\").html(\"".$nice_date."\");\n";
   $result.= "$(\".update_status\").html(\"".$nice_status."\");\n";
@@ -169,12 +170,21 @@
     $result.= "$(\".row_nextsession\").hide();\n";
   }
 
+  if ($actual_status != $FS_CLOSED) {
+    $result.="$(\".row_temps\").show();\n";
+    $result.= "$(\".update_temps\").html(\"".$aptemps."\");\n";
+    
+  } else {
+    $result.="$(\".row_temps\").hide();\n";
+  } 
+
   if ($fstatus[$FS_MSGON]=='0') {
     $result.="$(\".special_msg\").html(\"&nbsp;<br/>\");\n";
   } else {
     $text = htmlspecialchars($fstatus[$FS_MSG]);
     $result.="$(\".special_msg\").html(\"<br/><span style='color:red'>PLEASE NOTE: </span>".$text."<br/>&nbsp;<br/>\");\n";
   }
+
   echo $result;
 
 ?>

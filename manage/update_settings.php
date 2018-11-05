@@ -14,8 +14,14 @@
   if (isset($_POST['f_msg'])) $f_msg = $_POST['f_msg'];
   $f_tt = base64_encode("");
   if (isset($_POST['f_tt'])) $f_tt = $_POST['f_tt'];
-  $settings = $f_status.",".$f_lanes.",".$f_swimmers.",".$f_msgon.",".$f_msg.",".$f_tt;
+  $f_atemp = 25;  
+  if (isset($_POST['f_atemp'])) $f_atemp = $_POST['f_atemp'];
+  $f_ptemp = 26;  
+  if (isset($_POST['f_ptemp'])) $f_ptemp = $_POST['f_ptemp'];
 
+  
+  $settings = $f_status.",".$f_lanes.",".$f_swimmers.",".$f_msgon.",".$f_msg.",".$f_tt.",".$f_ptemp.",".$f_atemp;
+  
   writeStatus("../", $settings);
   
   $result="";
@@ -33,8 +39,11 @@
   $swimmers_string = do_num_slider($f_swimmers,0,100,"up_swimmers()","down_swimmers()");
   $result.= "$(\".update_lanes\").html(\"".$lane_string."\");";
   $result.= "$(\".update_swimmers\").html(\"".$swimmers_string."\");";   
+  $temps = $f_ptemp."&#8451; / ".$f_atemp."&#8451;";
+  $result.= "$(\".update_temps\").html(\"".$temps."\");\n";
   $result.= "$(\".update_tt\").html(\"<select name='tt' onchange='javascript:change_tt();'>";
-
+  
+  
   include "../timetable_file.php";
   $tts = readTimetable("../");
   

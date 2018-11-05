@@ -17,4 +17,21 @@
     <slot type="school" day="Thursday" start="1000" end="1200" />
     <slot type="school" day="Friday" start="1000" end="1200" />
   </tt>
+  <tt name="RGVjZW1iZXIgMjAxOA==">
+    <slot day="Monday" type="open" start="0700" end="1100"/>
+    <slot day="Monday" type="open" start="1200" end="1430"/>
+    <slot day="Monday" type="school" start="1430" end="1530"/>
+    <slot day="Monday" type="open" start="1530" end="1600"/>
+    <slot day="Tuesday" type="open" start="1000" end="1400"/>
+    <slot day="Tuesday" type="open" start="1500" end="1900"/>
+    <slot day="Wednesday" type="open" start="0700" end="1100"/>
+    <slot day="Wednesday" type="open" start="1200" end="1600"/>
+    <slot day="Thursday" type="school" start="1000" end="1200"/>
+    <slot day="Thursday" type="open" start="1200" end="1400"/>
+    <slot day="Thursday" type="open" start="1500" end="1900"/>
+    <slot day="Friday" type="open" start="0700" end="1000"/>
+    <slot day="Friday" type="school" start="1000" end="1200"/>
+    <slot day="Friday" type="open" start="1200" end="1400"/>
+    <slot day="Friday" type="open" start="1500" end="1600"/>
+  </tt>
 </tts>

@@ -28,7 +28,9 @@
         if (msg=='') msg=' ';
         msg = encode64(msg);
         var tt = document.fsettings.tt.value;
-        $.post("update_settings.php",{f_status : status, f_lanes : lanes, f_swimmers : swimmers, f_msgon : msg_on, f_msg : msg, f_tt : tt}, function(result) {
+        var atemp = document.fsettings.atemp.value;
+        var ptemp = document.fsettings.ptemp.value;
+        $.post("update_settings.php",{f_status : status, f_lanes : lanes, f_swimmers : swimmers, f_msgon : msg_on, f_msg : msg, f_tt : tt, f_atemp : atemp, f_ptemp: ptemp}, function(result) {
           eval(result);
         });
 
@@ -45,6 +47,34 @@
         if (text!=null) {
           document.fsettings.SpMsg.value = text;
           update_status(5);
+        }
+      }
+      
+      function air_temp() {
+        var text = prompt("Please enter air temperature (Celcius)", document.fsettings.atemp.value);
+        if (text!=null) {
+          if (text.trim().length>0) {
+            if (isNaN(Number(text))) {
+              alert("Decimal number expected. (eg, 25.5)");
+            } else {
+              document.fsettings.atemp.value = text;
+              update_status(5);
+            }
+          }
+        }
+      }
+
+      function pool_temp() {
+        var text = prompt("Please enter pool temperature (Celcius)", document.fsettings.ptemp.value);
+        if (text!=null) {
+          if (text.trim().length>0) {
+            if (isNaN(Number(text))) {
+              alert("Decimal number expected. (eg, 25.5)");
+            } else {
+              document.fsettings.ptemp.value = text;
+              update_status(5);
+            }
+          }
         }
       }
 
@@ -78,6 +108,8 @@
           <tr class="row_status"><td class="tinfo">Status:</td><td class="tdata">
             <input type="hidden" name="lanes" value="0"/>
             <input type="hidden" name="swimmers" value="0"/>
+            <input type="hidden" name="ptemp" value="25"/>
+            <input type="hidden" name="atemp" value="25"/>
             <table>
               <tr><td><input onclick="javascript:tick(1);" type="checkbox" name="StAuto"/>&nbsp;Automatic (uses timetable)<br/></td></tr>
               <tr><td><input onclick="javascript:tick(2);" type="checkbox" name="StFOpen"/>&nbsp;Force: Open<br/></td></tr>
@@ -107,6 +139,13 @@
             <div class="update_swimmers">
             </div>
           </td></tr>
+          <tr class="row_temps"><td class="tinfo">Pool/Air Temperature:</td><td class="tdata">
+            <div style="display:inline-block" class="update_temps">
+            </div>&nbsp;&nbsp;<input type="button" value="Pool" onclick="javascript:pool_temp();"/>
+            &nbsp;&nbsp;<input type="button" value="Air" onclick="javascript:air_temp();"/>
+          </td></tr>
+
+          </td></tr>
           <tr class="row_message"><td class="tinfo">Special Message:</td><td class="tdata">
             <input type="checkbox" name="SpMsgOn" onclick="javascript:update_status(5);"/>&nbsp;<input type="text" name="SpMsg" onkeydown="return (event.keyCode!=13);" readonly style="width:180px"/>
             <input type="button" value="Edit" name="Edit" onclick="javascript:edit_special_msg();"/>
@@ -124,6 +163,10 @@
     document.fsettings.swimmers.value = <?=$fstatus[$FS_SWIMMERS] ?>;
     document.fsettings.SpMsgOn.checked =<?php echo ($fstatus[$FS_MSGON] == "1")?"true":"false"; ?>;
     document.fsettings.SpMsg.value = "<?php echo $fstatus[$FS_MSG]; ?>";
+    document.fsettings.atemp.value = "<?php echo $fstatus[$FS_ATEMP]; ?>";
+    document.fsettings.ptemp.value = "<?php echo $fstatus[$FS_PTEMP]; ?>";
+    $(".update_temps").html("<?php echo htmlspecialchars($fstatus[$FS_PTEMP]).'&#8451; / '.htmlspecialchars($fstatus[$FS_ATEMP]).'&#8451;'; ?>");
+  
     <?php
       include "num_slider.php";
       $lane_string = do_num_slider($fstatus[$FS_LANES],0,4,"up_lanes()","down_lanes()");

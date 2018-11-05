@@ -37,8 +37,10 @@
       <tr class="row_status"><td class="tinfo">Current Status:</td><td class="tdata"><div class="update_status">&nbsp;</div></td></tr>
       <tr class="row_lanes"><td class="tinfo">Lanes Available:</td><td class="tdata"><div class="update_lanes">&nbsp;</div></td></tr>
       <tr class="row_swimmers"><td class="tinfo">Current Swimmers:</td><td class="tdata"><div class="update_swimmers">&nbsp;</div></td></tr>
-      <tr class="row_endsession"><td class="tinfo">End of Session:</td><td class="tdata"><div class="update_end">&nbsp;</td></div></tr>
-      <tr class="row_nextsession"><td class="tinfo">Next Open Session:</td><td class="tdata"><div class="update_next">&nbsp;</td></div></tr>
+      <tr class="row_temps"><td class="tinfo">Pool/Air Temperature:</td><td class="tdata"><div class="update_temps">&nbsp;</div></td></tr>
+      <tr class="row_endsession"><td class="tinfo">End of Session:</td><td class="tdata"><div class="update_end">&nbsp;</div></td></tr>
+      <tr class="row_nextsession"><td class="tinfo">Next Open Session:</td><td class="tdata"><div class="update_next">&nbsp;</div></td></tr>
+
     </table>&nbsp;<br/></center></td></tr></table>
 
     &nbsp;<br/>

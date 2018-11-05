@@ -9,15 +9,17 @@
   $FS_MSGON = 3;
   $FS_MSG = 4;
   $FS_TT_NAME = 5;
-  $FS_TT_NAME_ENC = 6;
-
+  $FS_PTEMP = 6;
+  $FS_ATEMP = 7;
+  $FS_TT_NAME_ENC = 8;
+  
   $FS_AUTO = "AUTO";
   $FS_OPEN = "OPEN";
   $FS_CLOSED = "CLOSED";
   $FS_SCHOOL = "SCHOOL";
 
   function readStatus($root) {
-    global $FS_MSG, $FS_TT_NAME, $FS_TT_NAME_ENC;
+    global $FS_MSG, $FS_TT_NAME, $FS_TT_NAME_ENC, $FS_PTEMP, $FS_ATEMP;
     $fstatus = "";
     $fl = fopen($root."data/status.lck", "r");
     if (flock($fl, LOCK_SH)) {
@@ -31,6 +33,8 @@
     $fstatus[$FS_MSG] = base64_decode($fstatus[$FS_MSG]);
     $fstatus[$FS_TT_NAME_ENC] = $fstatus[$FS_TT_NAME];
     $fstatus[$FS_TT_NAME] = base64_decode($fstatus[$FS_TT_NAME]);
+    $fstatus[$FS_PTEMP] = $fstatus[$FS_PTEMP];
+    $fstatus[$FS_ATEMP] = $fstatus[$FS_ATEMP];
     return $fstatus;
   }
 
