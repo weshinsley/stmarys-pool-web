@@ -85,7 +85,9 @@
         var msg_on = 0;
         if (document.fsettings.SpMsgOn.checked) msg_on = 1;
         var msg = encode64(document.fsettings.SpMsg.value);
-        $.post("update_settings.php",{f_status : x, f_lanes : lanes, f_swimmers : swimmers, f_msgon : msg_on, f_msg : msg}, function(result) {
+        var atemp = document.fsettings.atemp.value;
+        var ptemp = document.fsettings.ptemp.value;
+        $.post("update_settings.php",{f_status : x, f_lanes : lanes, f_swimmers : swimmers, f_msgon : msg_on, f_msg : msg, f_atemp: atemp, f_ptemp: ptemp}, function(result) {
           eval(result);
         });
       }
