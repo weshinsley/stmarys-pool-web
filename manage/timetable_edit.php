@@ -330,7 +330,6 @@
             if (current_type < 3) {
               
               s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:"+height+"px;background-color:"+cols[current_type]+"'></td></tr>\n";
-              s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:1px;background-color:#404040'></td></tr>\n";
             
             } else {
               var cw1 = 0;
@@ -345,6 +344,7 @@
               s = s +  "      <td style='padding:0px; width:"+cw2+"px;height:"+height+"px;background-color:"+cols[1]+"'></td>\n";
               s = s +  "    </tr></table></td></tr>\n";
             }
+              s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:1px;background-color:#404040'></td></tr>\n";
 
             
             
