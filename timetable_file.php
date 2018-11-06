@@ -2,9 +2,14 @@
 
   // Useful shared functions for handling the timetable XML file.
   
+  $TT_CLOSED = "closed"; // Doesn't come up in XML file...
   $TT_OPEN = "open";
   $TT_SCHOOL = "school";
+  $TT_OPEN_3 = "3 lanes open";
+  $TT_OPEN_2 = "2 lanes open";
+  $TT_OPEN_1 = "1 lane open";
 
+  $TT_ALL_TYPES = array($TT_CLOSED, $TT_OPEN, $TT_SCHOOL, $TT_OPEN_3, $TT_OPEN_2, $TT_OPEN_1);
   $TT_F_DUP = 1;
   $TT_F_RENAME = 2;
   $TT_F_DELETE = 3;
@@ -28,7 +33,7 @@
       fwrite($fw, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tts>\n");
       foreach ($tts->tt as $tt) {
         fwrite($fw,"  <tt name=\"");
-        if ($tt['name']==$orig) fwrite($fw, $new);
+        if ($tt['name']==orig) fwrite($fw, $new);
         else fwrite($fw, $tt['name']);
         fwrite($fw, "\">");
         foreach ($tt->slot as $slot) {

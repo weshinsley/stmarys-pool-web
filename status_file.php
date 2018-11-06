@@ -18,6 +18,9 @@
   $FS_CLOSED = "CLOSED";
   $FS_SCHOOL = "SCHOOL";
 
+  $FS_ALL_STATUSES = array($FS_AUTO, $FS_OPEN, $FS_CLOSED, $FS_SCHOOL);
+  $FS_ALL_STATUS_NAMES = array("Automatic (uses timetable)","Force Open","Force Closed","Force School Use");
+
   function readStatus($root) {
     global $FS_MSG, $FS_TT_NAME, $FS_TT_NAME_ENC, $FS_PTEMP, $FS_ATEMP;
     $fstatus = "";

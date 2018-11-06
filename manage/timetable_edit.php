@@ -260,8 +260,8 @@
         var s = "<table style='border-spacing:0px; border-collapse:collapse;'><tr>\n";
         var colwid = 20;
         var rowhei = 22;
-        var types = ["","open","school"];
-        var cols = ["#909090","#90d090","#9090d0"];
+        var types = ["","open","school","3 lanes open", "2 lanes open","1 lane open"];
+        var cols = ["#909090","#90d090","#9090d0","#ff0000","#ff0000","#ff0000"];
 
         // Build a matrix from the grubby javascript "data" structure...
 
@@ -327,8 +327,27 @@
             while ((t2 < steps-1) && (matrix[d][t2+1]==current_type)) t2++;
             height = (1+(t2-t1))*((rowhei/2)-1);
             height = height + (t2-t1);
-            s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:"+height+"px;background-color:"+cols[current_type]+"'></td></tr>\n";
-            s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:1px;background-color:#404040'></td></tr>\n";
+            if (current_type < 3) {
+              
+              s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:"+height+"px;background-color:"+cols[current_type]+"'></td></tr>\n";
+              s = s + "    <tr><td style='padding:0px; width:"+colwid+"px;height:1px;background-color:#404040'></td></tr>\n";
+            
+            } else {
+              var cw1 = 0;
+              var cw2 = 0;
+              if (current_type == 3) cw1 = colwid / 4; 
+              else if (current_type == 4) cw1 = colwid / 2; 
+              else if (current_type == 5) cw1 = 3 * (colwid / 4);
+              var cw2 = colwid - cw1;
+          
+              s = s +  "    <tr><td style='padding:0px; width:"+colwid+"px;height:"+height+"px;'><table cellpadding=\"0\" cellspacing=\"0\"><tr>";
+              s = s +  "      <td style='padding:0px; width:"+cw1+"px;height:"+height+"px;background-color:"+cols[current_type]+"'></td>\n";
+              s = s +  "      <td style='padding:0px; width:"+cw2+"px;height:"+height+"px;background-color:"+cols[1]+"'></td>\n";
+              s = s +  "    </tr></table></td></tr>\n";
+            }
+
+            
+            
             t1 = t2 + 1;
             t2 = t1;
           }
@@ -392,6 +411,9 @@
         <select name="stype" style="width:80px">
           <option value="open">Open</option>
           <option value="school">School</option>
+          <option value="3 lanes open">3 Lanes Open</option>
+          <option value="2 lanes open">2 Lanes Open</option>
+          <option value="1 lanes open">1 Lanes Open</option>
         </select>&nbsp;from&nbsp;
         <select name="time1" style="width:80px">
         <?php

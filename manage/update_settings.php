@@ -1,9 +1,8 @@
 <?php
   include "../status_file.php";
 
-  $statuses = array(1 => $FS_AUTO, 2 => $FS_OPEN, 3 => $FS_CLOSED, 4 => $FS_SCHOOL); 
   $f_status = $FS_AUTO;
-  if (isset($_POST['f_status'])) $f_status = $statuses[$_POST['f_status']];  
+  if (isset($_POST['f_status'])) $f_status = $_POST['f_status'];  
   $f_lanes = "4";
   if (isset($_POST['f_lanes'])) $f_lanes = $_POST['f_lanes'];
   $f_swimmers = "0";
@@ -25,6 +24,7 @@
   writeStatus("../", $settings);
   
   $result="";
+  
   $result.= "document.fsettings.StAuto.checked = ".(($f_status == $FS_AUTO)?"true;":"false;")."\n";
   $result.= "document.fsettings.StFOpen.checked = ".(($f_status == $FS_OPEN)?"true;":"false;")."\n";
   $result.= "document.fsettings.StFClosed.checked = ".(($f_status == $FS_CLOSED)?"true;":"false;")."\n";
