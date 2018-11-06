@@ -111,13 +111,16 @@
 
       function rename_tt() {
         var orig = document.getElementById("choose_tt").value;
-        var n = prompt("New name for the new timetable?");
+        var orig_dec = decode64(orig);
+        var n = prompt("New name for the new timetable?", orig_dec);
         if (n!=null) {
-          n = n.trim();
-          if (n.length>0) {
-            $.post("timetable_funcs.php", {tto : orig, ttn : encode64(n), dat : data, func : <?=$TT_F_RENAME ?>}, function(result) {
-              eval(result);
-            });
+          if (n!=orig_dec) {
+            n = n.trim();
+            if (n.length>0) {
+              $.post("timetable_funcs.php", {tto : orig, ttn : encode64(n), dat : data, func : <?=$TT_F_RENAME ?>}, function(result) {
+                eval(result);
+              });
+            }
           }
         }
       }

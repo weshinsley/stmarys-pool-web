@@ -33,9 +33,9 @@
       fwrite($fw, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tts>\n");
       foreach ($tts->tt as $tt) {
         fwrite($fw,"  <tt name=\"");
-        if ($tt['name']==orig) fwrite($fw, $new);
+        if ($tt['name']==$orig) fwrite($fw, $new);
         else fwrite($fw, $tt['name']);
-        fwrite($fw, "\">");
+        fwrite($fw, "\">\n");
         foreach ($tt->slot as $slot) {
           fwrite($fw, "    <slot type=\"".$slot['type']."\" day=\"".$slot['day']."\" start=\"".$slot['start']."\" end=\"".$slot['end']."\" />\n");
         }
@@ -55,7 +55,7 @@
       fwrite($fw, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tts>\n");
       foreach ($tts->tt as $tt) {
         if ($tt['name']!=$todel) {
-          fwrite($fw,"  <tt name=\"".$tt['name']."\">");
+          fwrite($fw,"  <tt name=\"".$tt['name']."\">\n");
           foreach ($tt->slot as $slot) {
             fwrite($fw, "    <slot type=\"".$slot['type']."\" day=\"".$slot['day']."\" start=\"".$slot['start']."\" end=\"".$slot['end']."\" />\n");
           }
