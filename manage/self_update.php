@@ -1,6 +1,6 @@
 <html><body><pre>
 <?php
-  $output=shell_exec("./gitpull.bat");
+  $output=shell_exec("gitpull.bat");
   echo $output;
 ?>
 </pre>
