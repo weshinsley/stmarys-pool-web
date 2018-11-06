@@ -25,10 +25,6 @@
   
   $result="";
   
-  $result.= "document.fsettings.StAuto.checked = ".(($f_status == $FS_AUTO)?"true;":"false;")."\n";
-  $result.= "document.fsettings.StFOpen.checked = ".(($f_status == $FS_OPEN)?"true;":"false;")."\n";
-  $result.= "document.fsettings.StFClosed.checked = ".(($f_status == $FS_CLOSED)?"true;":"false;")."\n";
-  $result.= "document.fsettings.StFSchool.checked = ".(($f_status == $FS_SCHOOL)?"true;":"false;")."\n";
   $result.= "document.fsettings.lanes.value = ".$f_lanes.";\n";
   $result.= "document.fsettings.swimmers.value = ".$f_swimmers.";\n";
   $result.= "document.fsettings.SpMsgOn.checked = ".(($f_msgon == "1")?"true;":"false;")."\n";
@@ -41,10 +37,19 @@
   $result.= "$(\".update_swimmers\").html(\"".$swimmers_string."\");";   
   $temps = $f_ptemp."&#8451; / ".$f_atemp."&#8451;";
   $result.= "$(\".update_temps\").html(\"".$temps."\");\n";
+  
+  $result.= "$(\".update_force_status\").html(\"<select onchange='javascript:change_status();' name='force_status'>";
+  for ($i=0; $i<count($FS_ALL_STATUSES); $i++) {
+    $selected="";
+    if ($f_status == $FS_ALL_STATUSES[$i]) $selected = "selected='selected'"; 
+    $result.="<option ".$selected." name='".$FS_ALL_STATUSES[$i]."' value='".$FS_ALL_STATUSES[$i]."'>".$FS_ALL_STATUS_NAMES[$i]."</option>";
+  }
+  $result.="</select>\");\n";
+  
+
+  include "../timetable_file.php";
   $result.= "$(\".update_tt\").html(\"<select name='tt' onchange='javascript:change_tt();'>";
   
-  
-  include "../timetable_file.php";
   $tts = readTimetable("../");
   
   foreach($tts->tt as $tt) {
