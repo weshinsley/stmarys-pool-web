@@ -4,6 +4,7 @@
   
   function draw_tt($tt, $type = 1) {
     global $TT_OPEN, $TT_SCHOOL,$TT_TIMES, $TT_ALL_TYPES,$TT_OPEN_3,$TT_OPEN_2,$TT_OPEN_1;
+
     $start_time = 7;
     $end_time = 19;
     $steps = ($end_time-$start_time)/0.5;
@@ -17,6 +18,10 @@
       }
       $matrix[$i] = $day_array;
     }
+ 
+    $TT_OPEN_3_I = array_search($TT_OPEN_3, $TT_ALL_TYPES);
+    $TT_OPEN_2_I = array_search($TT_OPEN_2, $TT_ALL_TYPES);
+    $TT_OPEN_1_I = array_search($TT_OPEN_1, $TT_ALL_TYPES);
 
 
     // Create matrix of days/times
@@ -93,9 +98,9 @@
         } else {
           $cw1 = 0;
           $cw2 = 0;
-          if ($current_type == $TT_OPEN_3) $cw1 = $colwid / 4; 
-          else if ($current_type == $TT_OPEN_2) $cw1 = $colwid / 2; 
-          else if ($current_type == $TT_OPEN_1) $cw1 = 3 * ($colwid / 4);
+          if ($current_type == $TT_OPEN_3_I) $cw1 = $colwid / 4; 
+          else if ($current_type == $TT_OPEN_2_I) $cw1 = $colwid / 2; 
+          else if ($current_type == $TT_OPEN_1_I) $cw1 = 3 * ($colwid / 4);
           $cw2 = $colwid - $cw1;
           echo "    <tr><td style='padding:0px; width:".$colwid."px;height:".$height."px;'><table cellpadding=\"0\" cellspacing=\"0\"><tr>";
           echo "      <td style='padding:0px; width:".$cw1."px;height:".$height."px;background-color:".$cols[$current_type]."'></td>\n";

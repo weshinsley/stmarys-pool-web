@@ -416,7 +416,7 @@
           <option value="school">School</option>
           <option value="3 lanes open">3 Lanes Open</option>
           <option value="2 lanes open">2 Lanes Open</option>
-          <option value="1 lanes open">1 Lanes Open</option>
+          <option value="1 lane open">1 Lane Open</option>
         </select>&nbsp;from&nbsp;
         <select name="time1" style="width:80px">
         <?php
