@@ -104,7 +104,7 @@
     $tts = readTimetable("");
     
     foreach ($tts->tt as $tt) {
-      if ($tt == $fstatus[$FS_TT_NAME]) {
+      if ($tt['name'] == $fstatus[$FS_TT_NAME_ENC]) {
         break;
       }
     }
