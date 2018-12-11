@@ -124,6 +124,21 @@
         } else if ($slot['type'] == $TT_SCHOOL) {
           $nice_status = "<span style='color:Blue'>SCHOOL USE ONLY</span>";
           $actual_status = $FS_SCHOOL;
+        } else if ($slot['type'] == $TT_OPEN_3) {
+          $nice_status = "<span style='color:#008f40'>3 LANES OPEN</span>";
+          $actual_status = $FS_OPEN;
+          $session_end = substr($slot['end'],0,2).":".substr($slot['end'],2,2);
+
+        } else if ($slot['type'] == $TT_OPEN_2) {
+          $nice_status = "<span style='color:#008f40'>2 LANES OPEN</span>";
+          $actual_status = $FS_OPEN;
+          $session_end = substr($slot['end'],0,2).":".substr($slot['end'],2,2);
+
+        } else if ($slot['type'] == $TT_OPEN_1) {
+          $nice_status = "<span style='color:#008f40'>1 LANE OPEN</span>";
+          $actual_status = $FS_OPEN;
+          $session_end = substr($slot['end'],0,2).":".substr($slot['end'],2,2);
+
         }
 
         // Find start of next session
