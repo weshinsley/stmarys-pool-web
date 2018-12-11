@@ -16,7 +16,7 @@
 
     foreach ($tt->slot as $slot) {
       if ($debug) echo "CONSIDER ".$slot['day'].", ".$slot['start']."<br/>";
-      if ($slot['type'] == 'open') {
+      if (($slot['type'] == 'open') || (strpos('lanes open', $slot['type'])>=0)) {
         $slot_day = array_search($slot['day'], $days);
         $slot_time = intval($slot['start']);
         $slot_time = (intval($slot_time/100)*60)+($slot_time % 100);
